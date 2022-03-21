@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:skiipe/Model/user.dart' as uss;
 import 'package:skiipe/auth/login.dart';
+import 'package:skiipe/pages/dashboard/dashboard.dart';
 import 'package:skiipe/service/firebase.dart';
 import 'package:skiipe/services/database.dart';
 import 'package:skiipe/utils/colors.dart';
@@ -23,7 +24,8 @@ class _SecondState extends State<Register> {
   bool remember = false;
   String email = '';
   String password = '';
-  String name = '';
+  String firstName = '';
+  String lastName = '';
   String confirmPassword = '';
   bool isLoading = false;
 
@@ -56,7 +58,7 @@ class _SecondState extends State<Register> {
                     child: Column(
                       children: [
                         SizedBox(
-                          height: 30,
+                          height: 50,
                         ),
                         Padding(
                           padding: const EdgeInsets.only(right: 30, left: 30),
@@ -124,7 +126,7 @@ class _SecondState extends State<Register> {
                                     ),
                                     onChanged: (value) {
                                       setState(() {
-                                        name = value;
+                                        firstName = value;
                                       });
                                     },
                                     style: TextStyle(
@@ -176,7 +178,7 @@ class _SecondState extends State<Register> {
                                     ),
                                     onChanged: (value) {
                                       setState(() {
-                                        name = value;
+                                        lastName = value;
                                       });
                                     },
                                     style: TextStyle(
@@ -465,24 +467,20 @@ class _SecondState extends State<Register> {
                                     await FireAuth.registerUsingEmailPassword(
                                   email: email,
                                   password: password,
-                                  name: name,
+                                  name: '${firstName} ${lastName}',
                                 );
                                 if (user != null) {
                                   Map<String, dynamic> userDataMap = {
                                     "uid": user.uid,
-                                    "name": name,
+                                    "firstName": firstName,
+                                    "lastName": lastName,
                                     "email": email,
-                                    "about": "",
+                                    "phoneNumber": "none",
                                     "imageUrl": "default",
-                                    "accountNumber": "none",
-                                    "bankName": "none",
-                                    "bankNumber": "none",
+                                    "dateOfBirth": "none",
                                     "dateCreated": DateTime.now()
                                         .millisecondsSinceEpoch
                                         .toString(),
-                                    "walletBalance": 0.0,
-                                    "totalSales": 0,
-                                    "totalListing": 0
                                   };
                                   await DatabaseMethods()
                                       .addUserInfo(userDataMap, user.uid);
@@ -493,21 +491,9 @@ class _SecondState extends State<Register> {
                                   uss.User users = uss.User.fromJson(
                                       userInfoSnapshot.data());
                                   userStorage.write("uid", user.uid);
-                                  userStorage.write("name", user.displayName);
+                                  userStorage.write("firstName", users.firstName);
                                   userStorage.write("email", user.email);
-                                  userStorage.write(
-                                      "walletBalance", users.walletBalance);
-                                  userStorage.write("about", users.about);
-                                  userStorage.write("imageUrl", users.imageUrl);
-                                  userStorage.write(
-                                      "accountNumber", users.accountNumber);
-                                  userStorage.write("bankName", users.bankName);
-                                  userStorage.write(
-                                      "bankNumber", users.bankNumber);
-                                  userStorage.write(
-                                      "totalSales", users.totalSales);
-                                  userStorage.write(
-                                      "totalListing", users.totalListing);
+                                  userStorage.write("lastName", users.lastName);
                                   setState(() {
                                     isLoading = false;
                                   });
@@ -517,12 +503,13 @@ class _SecondState extends State<Register> {
                                         return AlertDialog(
                                           title: Text('Skiipe Registration '),
                                           content: Text(
-                                              "Registration Complete..Home page coming soon"),
+                                              "Registration Complete.."),
                                           actions: <Widget>[
                                             new FlatButton(
                                               child: new Text('Ok'),
                                               onPressed: () {
-                                                Navigator.of(context).pop();
+                                                Get.back();
+                                                Get.off(MyDashBoard());
                                               },
                                             )
                                           ],

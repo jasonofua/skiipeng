@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:skiipe/auth/login.dart';
+import 'package:skiipe/pages/dashboard/dashboard.dart';
 import 'package:skiipe/welcome/onboarding.dart';
 
 class Splashscreen extends StatefulWidget {
@@ -28,7 +29,7 @@ class _SecondState extends State<Splashscreen> {
         userStorage.write("uid", user.uid);
         userStorage.write("name", user.displayName);
         userStorage.write("email", user.email);
-        Get.off(() => Login());
+        Get.off(() => MyDashBoard());
       });
     } else {
       // await Future.delayed(Duration(milliseconds: 2000));

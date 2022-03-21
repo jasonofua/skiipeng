@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>724904532700-t80diph5j0h5sf8legbbkfnvkc5kfors.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.724904532700-t80diph5j0h5sf8legbbkfnvkc5kfors</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>724904532700-avanqd75i1kcgam2eflp06r0hq8d781d.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCLCdgBzC-8QNiF22ZwK4SjTRXtcG_n_Xg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>724904532700</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.skiipe.skiipe</string>
+	<key>PROJECT_ID</key>
+	<string>skiipe-24691</string>
+	<key>STORAGE_BUCKET</key>
+	<string>skiipe-24691.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:724904532700:ios:335542a3559da71ec17219</string>
+</dict>
+</plist>

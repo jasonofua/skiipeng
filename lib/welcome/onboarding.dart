@@ -28,9 +28,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   void initState() {
     _controller = PageController();
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-        statusBarColor: Colors.white,
-        statusBarIconBrightness: Brightness.dark));
+
     // getCurrentUser();
     super.initState();
 
@@ -61,7 +59,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.white,
+      statusBarColor: Colors.transparent,
     ));
     return Container(
       color: primaryColor,

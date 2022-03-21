@@ -18,7 +18,7 @@ class DatabaseMethods {
 
   Future<void> addUserInfo(userData, uid) async {
     await FirebaseFirestore.instance
-        .collection("users")
+        .collection("qr")
         .doc(uid)
         .set(userData)
         .catchError((e) {
@@ -38,7 +38,7 @@ class DatabaseMethods {
 
   Future<void> updateUserInfo(value, uid, field) async {
     await FirebaseFirestore.instance
-        .collection('users')
+        .collection('qr')
         .doc(uid)
         .update({field: value}).catchError((e) {
       print(e.toString());
@@ -56,7 +56,7 @@ class DatabaseMethods {
 
   getUserInfo(String uid) async {
     return FirebaseFirestore.instance
-        .collection("users")
+        .collection("qr")
         .doc(uid)
         .get()
         .catchError((e) {

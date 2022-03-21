@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:skiipe/Model/user.dart' as uss;
 import 'package:skiipe/auth/register.dart';
+import 'package:skiipe/pages/dashboard/dashboard.dart';
 // import 'package:payfiat/pages/home.dart';
 import 'package:skiipe/service/firebase.dart';
 import 'package:skiipe/services/database.dart';
@@ -53,7 +54,7 @@ class _SecondState extends State<Login> {
                   child: Column(
                     children: [
                       SizedBox(
-                        height: 30,
+                        height: 50,
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 30, left: 30),
@@ -310,21 +311,9 @@ class _SecondState extends State<Login> {
                                 uss.User users =
                                     uss.User.fromJson(userInfoSnapshot.data());
                                 userStorage.write("uid", user.uid);
-                                userStorage.write("name", user.displayName);
+                                userStorage.write("firstName", users.firstName);
                                 userStorage.write("email", user.email);
-                                userStorage.write(
-                                    "walletBalance", users.walletBalance);
-                                userStorage.write("about", users.about);
-                                userStorage.write("imageUrl", users.imageUrl);
-                                userStorage.write(
-                                    "accountNumber", users.accountNumber);
-                                userStorage.write("bankName", users.bankName);
-                                userStorage.write(
-                                    "bankNumber", users.bankNumber);
-                                userStorage.write(
-                                    "totalSales", users.totalSales);
-                                userStorage.write(
-                                    "totalListing", users.totalListing);
+                                userStorage.write("lastName", users.lastName);
                                 setState(() {
                                   isLoading = false;
                                 });
@@ -335,12 +324,13 @@ class _SecondState extends State<Login> {
                                       return AlertDialog(
                                         title: Text('Skiipe Login '),
                                         content: Text(
-                                            "Login Complete..Home page coming soon"),
+                                            "Login Complete.."),
                                         actions: <Widget>[
                                           new FlatButton(
                                             child: new Text('Ok'),
                                             onPressed: () {
-                                              Navigator.of(context).pop();
+                                              Get.back();
+                                              Get.off(MyDashBoard());
                                             },
                                           )
                                         ],
