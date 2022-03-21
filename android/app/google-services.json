@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "724904532700",
+    "project_id": "skiipe-24691",
+    "storage_bucket": "skiipe-24691.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724904532700:android:2317eb9b1a01f187c17219",
+        "android_client_info": {
+          "package_name": "com.skiipe.skiipe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724904532700-toacbbttcgno6apbhgfi42mrl393lv1p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOF8kw24mSPSnYr5UKa0Z9xNbCXadc4lY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724904532700-toacbbttcgno6apbhgfi42mrl393lv1p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
